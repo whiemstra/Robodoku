@@ -1,3 +1,8 @@
 class Solver
-  # your excellent code here
+
+  def initialize(input)
+    @board = Board.new(input)
+  end
+
+
 end
