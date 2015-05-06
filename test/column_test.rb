@@ -18,11 +18,15 @@ class Columntest < Minitest::Test
     skip
   end
 
-  def test_possibilites_reduce_from_nums_in_column
+  def test_possibilities_reduce_nums_already_in_column
     skip
   end
 
   def test_empty_spot_gets_filled_with_missing_number
+    skip
+  end
+
+  def test_multiple_empty_spots_in_a_row_get_filled_with_missing_numbers
     skip
   end
 end
