@@ -30,15 +30,17 @@ class RowTest < Minitest::Test
   def test_possibilities_reduce_nums_already_in_row
     row = Row.new
     input = '1234567 9'
-    starting_numbers = row.set_up_rows(input)
-    row.solve(starting_numbers)
+    row.set_up_rows(input)
+    row.reduce_possibilities
     assert_equal [8], row.possibilities
   end
 
   def test_empty_spot_gets_filled_with_missing_number
     row = Row.new
-    input = [1,2,3,0,5,6,7,8,9]
-    answer = row.solve(input)
+    input = '123 56789'
+    row.set_up_rows(input)
+    row.reduce_possibilities
+    answer = row.fill_empty_spots
     assert_equal [1,2,3,4,5,6,7,8,9], answer
   end
 

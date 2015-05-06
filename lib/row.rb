@@ -10,10 +10,33 @@ class Row
     @data = input.split('').map { |x| x.to_i }
   end
 
-  def solve(input)
-    remaining_poss = possibilities.delete_if { |i| input.include?(i) }
-    if remaining_poss.length == 1
-      input.map! { |i| i == 0 ? remaining_poss : i }.flatten
+  def reduce_possibilities
+    # possibilities.delete_if { |i| input.include?(i) }
+    data.map do |num|
+      @possibilities.delete(num)
+    end
+    @possibilities
+  end
+
+  def fill_empty_spots
+    if possibilities.length == 1
+      data.map! { |i| i == 0 ? possibilities : i }.flatten
     end
   end
+
+  # def solve(input)
+  #
+  #
+  # end
 end
+
+
+# row = Row.new
+# input = '12 4'
+# row.set_up_rows(input)
+# reduced = row.reduce_possibilities
+#
+# puts reduced
+#
+# solved = row.fill_empty_spots
+# print solved

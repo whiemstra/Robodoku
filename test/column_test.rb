@@ -7,7 +7,8 @@ require_relative '../lib/column'
 class ColumnTest < Minitest::Test
 
   def test_column_has_nine_elements
-    skip
+    column = Column.new
+
   end
 
   def test_column_fills_an_empty_spot_with_zero
