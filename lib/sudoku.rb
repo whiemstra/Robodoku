@@ -1,6 +1,6 @@
 require '../lib/solver'
 
-puzzle_path = ARGV[0]
-puzzle_text = File.read(puzzle_path).map(&:chomp)
-solver = Solver.new(puzzle_text)
+path = ARGV[0]
+puzzle = File.read(path).map(&:chomp)
+solver = Solver.new(puzzle)
 puts solver.solve

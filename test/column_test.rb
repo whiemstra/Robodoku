@@ -16,7 +16,6 @@ class Columntest < Minitest::Test
 
   def test_a_column_has_a_collection_of_possibilities
     skip
-
   end
 
   def test_possibilites_reduce_from_nums_in_column
