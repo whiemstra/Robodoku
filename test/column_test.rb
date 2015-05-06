@@ -4,7 +4,7 @@ require "minitest/pride"
 
 require_relative '../lib/column'
 
-class Columntest < Minitest::Test
+class ColumnTest < Minitest::Test
 
   def test_column_has_nine_elements
     skip
