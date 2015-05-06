@@ -24,15 +24,11 @@ class Row
     end
   end
 
-  # def solve(input)
-  #
-  #
-  # end
 end
 
 
 # row = Row.new
-# input = '12 4'
+# input = '12 456789'
 # row.set_up_rows(input)
 # reduced = row.reduce_possibilities
 #
