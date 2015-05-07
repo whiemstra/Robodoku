@@ -13,7 +13,7 @@ class Board
     @rows = spots.each_slice(9).map { |rows| Row.new(rows) }
     @columns = spots.each_slice(9).to_a
                  .transpose.map { |column| Column.new(column) }
-    @squares = spots.each_slice(9).each_slice(3).flat_map { |ary| ary.transpose.flatten }.each_slice(9).map { |slice| Square.new(slice) }
+    @squares = spots.each_slice(9).each_slice(3).flat_map { |x| x.transpose.flatten }.each_slice(9).map { |square| Square.new(square) }
   end
 
   def check_all_possibilities
