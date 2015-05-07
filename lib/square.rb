@@ -1,7 +1,7 @@
 require_relative 'spot'
 require 'pry'
 
-class Column
+class Square
   attr_reader :spots, :possibilities, :empty_spots
 
   def initialize(spots)
@@ -16,7 +16,7 @@ class Column
     end
   end
 
-  def check_column
+  def check_square
     @spots.each do |spot|
       if spot.solved?
         empty_spots.each { |empty_spot| empty_spot.reduce_possibilities(spot.value) }
@@ -27,9 +27,5 @@ class Column
   def empty_spots
     @spots.reject(&:solved?)
   end
-
-  # def fill_empty_spots
-  #   empty_spots.each { |empty_spot| empty_spot.reduce_possibilities(spot.value) }
-  # end
 
 end

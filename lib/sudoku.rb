@@ -1,6 +1,6 @@
-require '../lib/solver'
+require_relative '../lib/solver'
 
-path = ARGV[0]
-puzzle = File.read(path) #.map(&:chomp)
-solver = Solver.new(puzzle)
-puts solver.solve
+puzzle_path = ARGV[0]
+puzzle_text = File.read(puzzle_path)
+solver = Solver.new(puzzle_text)
+print solver.solve

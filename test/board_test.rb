@@ -1,40 +1,29 @@
 require_relative '../lib/board'
+require_relative '../lib/solver'
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'pry'
 
 class BoardTest < Minitest::Test
 
-  def test_it_sets_up_board
-    input = "123456789123456789"
-    board = Board.new(input)
-    assert_equal [[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9]], board.set_up_grid
+  def setup
+    @board = Board.new(File.read("./puzzles/trivial.txt"))
   end
 
-  def test_it_makes_a_row
-    input = "123456789123477779"
-    board = Board.new(input)
-    rows = board.set_up_grid
-    assert_equal [1,2,3,4,7,7,7,7,9], rows[1]
-  end
-
-  def test_it_makes_a_column
+  def test_it_has_spots
     skip
+    assert_equal 81, @board.spots.size
   end
 
-  def test_it_makes_a_square
-    skip
+  def test_it_has_rows
+    assert_equal 9, @board.rows.size
   end
 
-  def test_it_finds_a_square
+  def test_it_can_return_the_spots_values
     skip
-  end
-
-  def test_it_selects_columns_for_a_square
-    skip
-  end
-
-  def test_it_fills_empty_spaces_with_spot_objects
-    skip
+    assert_equal 0, @board.spots[0].value
+    assert_equal 6, @board.spots[40].value
+    assert_equal 1, @board.spots[80].value
   end
 
 end

@@ -33,12 +33,12 @@ class RowTest < Minitest::Test
     assert_equal 9, row.spots.last.value
   end
 
-  def test_multiple_empty_spots_in_a_row_get_filled_with_missing_numbers
-    skip  # test for board?? need column solutions....
-    row = Row.new
-    input = [1,2,3,0,5,6,7,8,0]
-    answer = row.solve(input)
-    assert_equal [1,2,3,4,5,6,7,8,9], answer
-  end
+  # def test_multiple_empty_spots_in_a_row_get_filled_with_missing_numbers
+  #   skip  # test for board?? need column solutions....
+  #   row = Row.new
+  #   input = [1,2,3,0,5,6,7,8,0]
+  #   answer = row.solve(input)
+  #   assert_equal [1,2,3,4,5,6,7,8,9], answer
+  # end
 end
 
