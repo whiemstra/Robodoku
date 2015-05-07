@@ -12,8 +12,9 @@ class Solver
     until board.puzzle_solved!
       board.check_all_possibilities
     end
-    one_big_row = board.spots.map{|spot| spot.value}
-    one_big_row.each_slice(9){|slice| puts slice.join}
+    one_big_row = board.spots.map(&:value)
+    board = one_big_row.each_slice(9).map(&:join)
+    puts board
   end
 
 end
