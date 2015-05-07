@@ -8,7 +8,10 @@ class ColumnTest < Minitest::Test
 
   def test_column_has_nine_elements
     column = Column.new
-
+    input = '123456789'
+    row.set_up_rows(input)
+    assert_equal 9, row.data.length
+    assert_equal [1,2,3,4,5,6,7,8,9], row.data
   end
 
   def test_column_fills_an_empty_spot_with_zero

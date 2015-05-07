@@ -1,27 +1,23 @@
+require_relative 'spot'
+require 'pry'
+
 class Row
-  attr_reader :data, :possibilities
+  attr_reader :spots, :empty_spots
 
-  def initialize
-    @data = []
-    @possibilities = [1,2,3,4,5,6,7,8,9]
+  def initialize(spots)
+    @spots = spots
   end
 
-  def set_up_rows(input)
-    @data = input.split('').map { |x| x.to_i }
-  end
-
-  def reduce_possibilities
-    # possibilities.delete_if { |i| input.include?(i) }
-    data.map do |num|
-      @possibilities.delete(num)
+  def check_row
+    @spots.each do |spot|
+      if spot.solved?
+        empty_spots.each { |a_spot| a_spot.reduce_possibilities(spot.value) }
+      end
     end
-    @possibilities
   end
 
-  def fill_empty_spots
-    if possibilities.length == 1
-      data.map! { |i| i == 0 ? possibilities : i }.flatten
-    end
+  def empty_spots
+    @spots.reject(&:solved?)
   end
 
 end
